@@ -1,9 +1,12 @@
-# Term Project
+# The Mixture-of-Contents Problem in RAG: A Tiered Evaluation of Discriminative Retrieval for Cross-Domain Attribution and Abstention Under Resource Constraints
 
 Multi-layer retrieval-augmented generation pipeline for cross-domain
 knowledge isolation between Dota 2 and League of Legends wikis. MSc
 non-thesis project.
 
+## Abstract
+
+This work addresses cross-domain question answering over corpora that share substantial common vocabulary but differ in underlying semantics, a setting termed the mixture-of-contents problem. The chosen domain pair consists of Dota 2 and League of Legends gaming wikis, where shared terms such as rune, jungle, and river carry game-specific meanings that the system must disambiguate. A discriminative retrieval-augmented generation pipeline is proposed, in which each stage scores candidate documents for domain fit and faithfulness rather than leaving disambiguation to the generator. The pipeline consists of hybrid retrieval, a confidence-gated reranker, an 8B-parameter generator, an NLI-based faithfulness check, and a threshold-driven orchestrator that shapes the final answer based on the scores aggregated. The full pipeline runs on a 6 GB-VRAM consumer laptop with no fine-tuning. Evaluation is conducted on a 323-question three-tier benchmark covering clean factual recall, ambiguous cross-domain attribution, and abstention under invalid premises, using RAGAS, manual oversight, and rubric-based grading across twelve ablation variants. On the clean factual tier, the reranker configuration recovers correct answers consistently, producing a clear improvement over no-reranker baselines. On the ambiguous cross-domain attribution tier, ablations indicate that the dominant contribution is the system prompt's explicit attribution enforcement. On the invalid-premise abstention tier, the abstention behavior is driven primarily by threshold-based gating, filtering chunks before they reach the generator. Together, these results suggest that in resource-constrained multi-domain question answering, attribution accuracy and abstention reliability are shaped more by prompt design and gating thresholds than by retrieval sophistication alone.
 
 ## Hardware requirements
 
